@@ -96,18 +96,20 @@
 
 
 
-  <meta name="description" content="Lombok JSR 269 API 规范 Lombok实战  @Data [包含了@Setter @Getter @ToString @EqualsAndHashCode] @Getter @Getter(AccessLevel.PROTECTED) @Setter @Setter(AccessLevel.PROTECTED) @NoArgsConstructor @AllArgsConstru">
+  <meta name="description" content="Lombok介绍https://projectlombok.org通过简单注解来精简代码，达到消除冗长代码的目的 Lombok优点  提高编码效率 使代码更简洁 消除冗长代码 避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错  Lombok原理  JSR 269 API 规范 javac从Java6开始支持 只要程序实现了该API，就能在javac运行时得到应">
 <meta name="keywords" content="annotation,style of coding">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lombok">
 <meta property="og:url" content="http://yoursite.com/2019/05/17/Lombok/index.html">
 <meta property="og:site_name" content="Plumre">
-<meta property="og:description" content="Lombok JSR 269 API 规范 Lombok实战  @Data [包含了@Setter @Getter @ToString @EqualsAndHashCode] @Getter @Getter(AccessLevel.PROTECTED) @Setter @Setter(AccessLevel.PROTECTED) @NoArgsConstructor @AllArgsConstru">
+<meta property="og:description" content="Lombok介绍https://projectlombok.org通过简单注解来精简代码，达到消除冗长代码的目的 Lombok优点  提高编码效率 使代码更简洁 消除冗长代码 避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错  Lombok原理  JSR 269 API 规范 javac从Java6开始支持 只要程序实现了该API，就能在javac运行时得到应">
 <meta property="og:locale" content="en/zh-CN">
-<meta property="og:updated_time" content="2019-07-01T14:51:18.704Z">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB3e7d1850253061e27a7198c29e45cf6c?method=download&shareKey=defa81e0e636e788d68beb1f50879105">
+<meta property="og:updated_time" content="2019-07-02T02:26:20.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lombok">
-<meta name="twitter:description" content="Lombok JSR 269 API 规范 Lombok实战  @Data [包含了@Setter @Getter @ToString @EqualsAndHashCode] @Getter @Getter(AccessLevel.PROTECTED) @Setter @Setter(AccessLevel.PROTECTED) @NoArgsConstructor @AllArgsConstru">
+<meta name="twitter:description" content="Lombok介绍https://projectlombok.org通过简单注解来精简代码，达到消除冗长代码的目的 Lombok优点  提高编码效率 使代码更简洁 消除冗长代码 避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错  Lombok原理  JSR 269 API 规范 javac从Java6开始支持 只要程序实现了该API，就能在javac运行时得到应">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB3e7d1850253061e27a7198c29e45cf6c?method=download&shareKey=defa81e0e636e788d68beb1f50879105">
 
 
 
@@ -401,7 +403,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-01 22:51:18" itemprop="dateModified" datetime="2019-07-01T22:51:18+08:00">2019-07-01</time>
+                <time title="Modified: 2019-07-02 10:26:20" itemprop="dateModified" datetime="2019-07-02T10:26:20+08:00">2019-07-02</time>
               
             
           </span>
@@ -473,8 +475,29 @@
       
 
       
-        <p>Lombok</p>
-<p>JSR 269 API 规范</p>
+        <p>Lombok介绍<br><a href="https://projectlombok.org" target="_blank" rel="noopener">https://projectlombok.org</a><br>通过简单注解来精简代码，达到消除冗长代码的目的</p>
+<p>Lombok优点</p>
+<ul>
+<li>提高编码效率</li>
+<li>使代码更简洁</li>
+<li>消除冗长代码</li>
+<li>避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错</li>
+</ul>
+<p>Lombok原理</p>
+<ul>
+<li>JSR 269 API 规范</li>
+<li>javac从Java6开始支持</li>
+<li>只要程序实现了该API，就能在javac运行时得到应用</li>
+</ul>
+<p><img src="https://note.youdao.com/yws/api/personal/file/WEB3e7d1850253061e27a7198c29e45cf6c?method=download&amp;shareKey=defa81e0e636e788d68beb1f50879105" alt="image"></p>
+<p>Lombok引入项目</p>
+<ul>
+<li><p>Maven引入 </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.projectlombok/lombok --&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>IDEA或Eclipse安装插件  </p>
+</li>
+</ul>
 <p>Lombok实战</p>
 <ul>
 <li>@Data [包含了@Setter @Getter @ToString @EqualsAndHashCode]</li>
@@ -490,7 +513,7 @@
 <li>@ToString(of=“column”)</li>
 <li>@ToString(of={“column1”,”column2”})</li>
 <li>@EqualsAndHashCode (同@ToString)</li>
-<li>@EqualsAndHashCode(exclude=“column”)</li>
+<li>EqualsAndHashCode(exclude=“column”)</li>
 <li>@Slf4j [适用于logbook日志框架]</li>
 <li>@Log4j [适用于log4j日志框架]</li>
 </ul>
