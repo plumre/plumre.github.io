@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en/zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Redis简介Redis - REmote DIctionary Server Redis是一个使用ANSI C语言编写的开源数据库 高性能的key-value数据库 内存数据库，支持数据持久化 Redis官网 https://redis.io 提供了Java、C、PHP等语言的客户端  Redis数据类型 Redis安装12345678910下载程序包后，tar -zxvf redis-2.8.">
+<meta name="keywords" content="redis,NoSQL,database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis简介">
+<meta property="og:url" content="http://yoursite.com/2019/05/17/Redis简介/index.html">
+<meta property="og:site_name" content="Plumre">
+<meta property="og:description" content="Redis简介Redis - REmote DIctionary Server Redis是一个使用ANSI C语言编写的开源数据库 高性能的key-value数据库 内存数据库，支持数据持久化 Redis官网 https://redis.io 提供了Java、C、PHP等语言的客户端  Redis数据类型 Redis安装12345678910下载程序包后，tar -zxvf redis-2.8.">
+<meta property="og:locale" content="en/zh-CN">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/030db584bc284e7343a39d9314ac69a5/WEBRESOURCE057a5e4811c66a583f1a4d8c74f6fc47?ynotemdtimestamp=1562119344584">
+<meta property="og:updated_time" content="2019-07-03T02:02:35.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis简介">
+<meta name="twitter:description" content="Redis简介Redis - REmote DIctionary Server Redis是一个使用ANSI C语言编写的开源数据库 高性能的key-value数据库 内存数据库，支持数据持久化 Redis官网 https://redis.io 提供了Java、C、PHP等语言的客户端  Redis数据类型 Redis安装12345678910下载程序包后，tar -zxvf redis-2.8.">
+<meta name="twitter:image" content="http://note.youdao.com/yws/public/resource/030db584bc284e7343a39d9314ac69a5/WEBRESOURCE057a5e4811c66a583f1a4d8c74f6fc47?ynotemdtimestamp=1562119344584">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/05/17/Redis简介/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Redis简介 | Plumre</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en/zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Plumre</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/Redis简介/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="plumre">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Plumre">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Redis简介
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-17 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-17T00:00:00+08:00">2019-05-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-03 10:02:35" itemprop="dateModified" datetime="2019-07-03T10:02:35+08:00">2019-07-03</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Redis/" itemprop="url" rel="index"><span itemprop="name">Redis</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">Comments: </span>
+                <a href="/2019/05/17/Redis简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/17/Redis简介/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             Views:  
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h1><h3 id="Redis-REmote-DIctionary-Server"><a href="#Redis-REmote-DIctionary-Server" class="headerlink" title="Redis - REmote DIctionary Server"></a>Redis - REmote DIctionary Server</h3><ul>
+<li>Redis是一个使用ANSI C语言编写的开源数据库</li>
+<li>高性能的key-value数据库</li>
+<li>内存数据库，支持数据持久化</li>
+<li>Redis官网 <a href="https://redis.io" target="_blank" rel="noopener">https://redis.io</a></li>
+<li>提供了Java、C、PHP等语言的客户端</li>
+</ul>
+<h5 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h5><p><img src="http://note.youdao.com/yws/public/resource/030db584bc284e7343a39d9314ac69a5/WEBRESOURCE057a5e4811c66a583f1a4d8c74f6fc47?ynotemdtimestamp=1562119344584" alt="Redis数据类型"></p>
+<h5 id="Redis安装"><a href="#Redis安装" class="headerlink" title="Redis安装"></a>Redis安装</h5><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">下载程序包后，</span><br><span class="line">tar -zxvf redis-2.8.0.tar.gz</span><br><span class="line">make</span><br><span class="line">make test</span><br><span class="line"></span><br><span class="line">然后启动 <span class="string">./redis-server</span></span><br><span class="line">或者<span class="string">./redis-server</span> &amp;[这样不占用命令行]</span><br><span class="line">你会看到PID以及redis的图标</span><br><span class="line"></span><br><span class="line">进入src，执行<span class="string">./redis-cli</span>启动客户端</span><br></pre></td></tr></table></figure>
+<h5 id="Redis单实例配置"><a href="#Redis单实例配置" class="headerlink" title="Redis单实例配置"></a>Redis单实例配置</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">redis.conf配置文件</span><br><span class="line">port</span><br><span class="line">requirepass</span><br><span class="line">masterauth主从同步在slave中配置</span><br><span class="line">redis-server</span><br><span class="line">redis-server <span class="variable">$&#123;redis.conf&#125;</span></span><br><span class="line">redis-server --port <span class="variable">$&#123;port&#125;</span></span><br><span class="line"></span><br><span class="line">redis-cli</span><br><span class="line">redis-cli -p <span class="variable">$&#123;port&#125;</span></span><br><span class="line">redis-cli -h <span class="variable">$&#123;ip&#125;</span></span><br><span class="line">redis-cli -a <span class="variable">$&#123;password&#125;</span></span><br><span class="line">redis-cli shutdown</span><br><span class="line">redis-cli -p <span class="variable">$&#123;port&#125;</span> shutdown</span><br><span class="line">redis-cli -h <span class="variable">$&#123;ip&#125;</span> shutdown</span><br><span class="line">redis-cli -p <span class="variable">$&#123;port&#125;</span> -h <span class="variable">$&#123;ip&#125;</span> shutdown</span><br></pre></td></tr></table></figure>
+<h5 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">ping PONG测试连接</span><br><span class="line"><span class="builtin-name">info</span> 所有信息</span><br><span class="line">quit  退出client的连接</span><br><span class="line">save  持久化保存</span><br><span class="line">dbsize  当前存储的键数量</span><br><span class="line">select  选择键空间[0-15] 共16个</span><br><span class="line">flushdb 清除当前的键空间</span><br><span class="line">flushall 清除所有的键空间</span><br><span class="line">expire 设置过期时间秒数</span><br><span class="line">ttl （time <span class="keyword">to</span> live）-1没有过期时间 -2已过期或键不存在</span><br><span class="line">type 返回值的类型</span><br><span class="line">randomkey 随机键</span><br><span class="line">rename 重命名键 old new [会覆盖已存在的键]</span><br><span class="line">renamenx 重命名键 [会有判断逻辑，如果已存在键，则不会重命名]</span><br><span class="line">del 删除key</span><br><span class="line">exists 判断是否存在</span><br></pre></td></tr></table></figure>
+<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span></span><br><span class="line">setex  秒<span class="comment">[expire]</span></span><br><span class="line">psetex 毫秒</span><br><span class="line">mset 批量设置键</span><br><span class="line">setnx 当键不存在时才能设值成功</span><br><span class="line">msetnx <span class="comment">[</span>具有原子性<span class="comment">]</span></span><br><span class="line">get</span><br><span class="line">mget 批量获取键值</span><br><span class="line">getrange 获取范围内的值</span><br><span class="line">getset 获取值并设置新值</span><br><span class="line">strlen 字符串的长度</span><br><span class="line">incr 要求为数值类型</span><br><span class="line">incrby 指定步长增加</span><br><span class="line">decr 减少</span><br><span class="line">decrby 指定步长减少</span><br><span class="line">append 追加到值末尾</span><br></pre></td></tr></table></figure>
+<h5 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hset</span><br><span class="line">type</span><br><span class="line">hexists</span><br><span class="line">hget</span><br><span class="line">hgetall</span><br><span class="line">hkeys</span><br><span class="line">hvals</span><br><span class="line">hlen</span><br><span class="line">hmget</span><br><span class="line">hmset</span><br><span class="line">hdel</span><br><span class="line">hsetnx</span><br></pre></td></tr></table></figure>
+<h5 id="list"><a href="#list" class="headerlink" title="list"></a>list</h5><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lpush</span><br><span class="line">type</span><br><span class="line">llen</span><br><span class="line"><span class="keyword">lrange</span></span><br><span class="line"><span class="keyword">lset</span></span><br><span class="line"><span class="keyword">lindex</span></span><br><span class="line">lpop</span><br><span class="line">rpop</span><br></pre></td></tr></table></figure>
+<h5 id="set"><a href="#set" class="headerlink" title="set"></a>set</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sadd</span><br><span class="line">type</span><br><span class="line">scard 返回元素数量</span><br><span class="line">rename</span><br><span class="line">smembers 元素成员</span><br><span class="line">sdiff  差集</span><br><span class="line">sinter 集合1 集合2  交集</span><br><span class="line">sunion 并集</span><br><span class="line">srandmember 随机集合元素</span><br><span class="line">sismember 是否集合元素</span><br><span class="line">srem 移除元素</span><br><span class="line">spop 移除并返回集合中的任意一个元素</span><br></pre></td></tr></table></figure>
+<h5 id="sorted-set"><a href="#sorted-set" class="headerlink" title="sorted set"></a>sorted set</h5><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">zadd </span><br><span class="line">type</span><br><span class="line">zcard</span><br><span class="line">zscore</span><br><span class="line">zcount</span><br><span class="line">zrank</span><br><span class="line">zincrby </span><br><span class="line">zrange</span><br><span class="line">zrange withscores</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>Donate comment here</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="plumre WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="plumre Alipay">
+        <p>Alipay</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redis/" rel="tag"># redis</a>
+          
+            <a href="/tags/NoSQL/" rel="tag"># NoSQL</a>
+          
+            <a href="/tags/database/" rel="tag"># database</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/17/Tomcat集群/" rel="next" title="Tomcat集群">
+                <i class="fa fa-chevron-left"></i> Tomcat集群
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/17/Maven环境隔离/" rel="prev" title="Maven环境隔离">
+                Maven环境隔离 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">plumre</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com/" title="https://github.com/" rel="noopener" target="_blank">GitHub</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis简介"><span class="nav-number">1.</span> <span class="nav-text">Redis简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis-REmote-DIctionary-Server"><span class="nav-number">1.0.1.</span> <span class="nav-text">Redis - REmote DIctionary Server</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Redis数据类型"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">Redis数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Redis安装"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">Redis安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Redis单实例配置"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">Redis单实例配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基础命令"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">基础命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string"><span class="nav-number">1.0.1.0.5.</span> <span class="nav-text">string</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hash"><span class="nav-number">1.0.1.0.6.</span> <span class="nav-text">hash</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#list"><span class="nav-number">1.0.1.0.7.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#set"><span class="nav-number">1.0.1.0.8.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sorted-set"><span class="nav-number">1.0.1.0.9.</span> <span class="nav-text">sorted set</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">plumre</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'RGJOcRBs18yAFpYyzbocqbwb-gzGzoHsz',
+    appKey: 'OjJm6NJH7rPJmHNfPR0HMuXe',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: 'en, zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  $('.highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('Copy').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('Copied');
+        else $(this).text('Copy failed');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('Copy');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

@@ -96,20 +96,22 @@
 
 
 
-  <meta name="description" content="Lombok介绍https://projectlombok.org通过简单注解来精简代码，达到消除冗长代码的目的 Lombok优点  提高编码效率 使代码更简洁 消除冗长代码 避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错  Lombok原理  JSR 269 API 规范 javac从Java6开始支持 只要程序实现了该API，就能在javac运行时得到应">
-<meta name="keywords" content="annotation,style of coding">
+  <meta name="description" content="Maven环境隔离实际的项目环境 本地开发环境（Local） 开发环境（Dev） 测试环境（Beta） 线上环境（Prod）   隔离环境之间各种配置存在的差异FTP服务器相关配置不一样数据库配置不一样… Maven环境隔离解决的实际问题避免人工修改的弊端，即容易犯错轻松分环境编译、打包、部署 Maven环境隔离配置及原理在pom.xml中build节点增加1234567891011&amp;lt;res">
+<meta name="keywords" content="maven,build tool,project management">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lombok">
-<meta property="og:url" content="http://yoursite.com/2019/05/17/Lombok/index.html">
+<meta property="og:title" content="Maven环境隔离">
+<meta property="og:url" content="http://yoursite.com/2019/05/17/Maven环境隔离/index.html">
 <meta property="og:site_name" content="Plumre">
-<meta property="og:description" content="Lombok介绍https://projectlombok.org通过简单注解来精简代码，达到消除冗长代码的目的 Lombok优点  提高编码效率 使代码更简洁 消除冗长代码 避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错  Lombok原理  JSR 269 API 规范 javac从Java6开始支持 只要程序实现了该API，就能在javac运行时得到应">
+<meta property="og:description" content="Maven环境隔离实际的项目环境 本地开发环境（Local） 开发环境（Dev） 测试环境（Beta） 线上环境（Prod）   隔离环境之间各种配置存在的差异FTP服务器相关配置不一样数据库配置不一样… Maven环境隔离解决的实际问题避免人工修改的弊端，即容易犯错轻松分环境编译、打包、部署 Maven环境隔离配置及原理在pom.xml中build节点增加1234567891011&amp;lt;res">
 <meta property="og:locale" content="en/zh-CN">
-<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEB3e7d1850253061e27a7198c29e45cf6c?method=download&shareKey=defa81e0e636e788d68beb1f50879105">
-<meta property="og:updated_time" content="2019-07-02T02:26:20.946Z">
+<meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/WEBc5420f929365a05317c5126afd6b5fa5?method=download&shareKey=dd7ac81b4fc36f66f571710ea61620db">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/85f035f22e89517b6c473ab5950512de/WEBRESOURCE9db24eb4d1b4b745d62a0b3ff8fb4863?ynotemdtimestamp=1562118643179">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/85f035f22e89517b6c473ab5950512de/WEBRESOURCE983e41d7a6df878c9b5a96922d644762?ynotemdtimestamp=1562118643179">
+<meta property="og:updated_time" content="2019-07-03T01:57:21.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lombok">
-<meta name="twitter:description" content="Lombok介绍https://projectlombok.org通过简单注解来精简代码，达到消除冗长代码的目的 Lombok优点  提高编码效率 使代码更简洁 消除冗长代码 避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错  Lombok原理  JSR 269 API 规范 javac从Java6开始支持 只要程序实现了该API，就能在javac运行时得到应">
-<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEB3e7d1850253061e27a7198c29e45cf6c?method=download&shareKey=defa81e0e636e788d68beb1f50879105">
+<meta name="twitter:title" content="Maven环境隔离">
+<meta name="twitter:description" content="Maven环境隔离实际的项目环境 本地开发环境（Local） 开发环境（Dev） 测试环境（Beta） 线上环境（Prod）   隔离环境之间各种配置存在的差异FTP服务器相关配置不一样数据库配置不一样… Maven环境隔离解决的实际问题避免人工修改的弊端，即容易犯错轻松分环境编译、打包、部署 Maven环境隔离配置及原理在pom.xml中build节点增加1234567891011&amp;lt;res">
+<meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/WEBc5420f929365a05317c5126afd6b5fa5?method=download&shareKey=dd7ac81b4fc36f66f571710ea61620db">
 
 
 
@@ -117,7 +119,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/17/Lombok/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/17/Maven环境隔离/">
 
 
 
@@ -127,7 +129,7 @@
   };
 </script>
 
-  <title>Lombok | Plumre</title>
+  <title>Maven环境隔离 | Plumre</title>
   
 
 
@@ -343,7 +345,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/Lombok/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/Maven环境隔离/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="plumre">
@@ -360,7 +362,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Lombok
+          <h1 class="post-title" itemprop="name headline">Maven环境隔离
 
               
             
@@ -403,7 +405,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-07-02 10:26:20" itemprop="dateModified" datetime="2019-07-02T10:26:20+08:00">2019-07-02</time>
+                <time title="Modified: 2019-07-03 09:57:21" itemprop="dateModified" datetime="2019-07-03T09:57:21+08:00">2019-07-03</time>
               
             
           </span>
@@ -420,7 +422,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Java-Plugins/" itemprop="url" rel="index"><span itemprop="name">Java Plugins</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Maven/" itemprop="url" rel="index"><span itemprop="name">Maven</span></a></span>
 
                 
                 
@@ -439,8 +441,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2019/05/17/Lombok/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/17/Lombok/" itemprop="commentCount"></span>
+                <a href="/2019/05/17/Maven环境隔离/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/17/Maven环境隔离/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -475,56 +477,23 @@
       
 
       
-        <p>Lombok介绍<br><a href="https://projectlombok.org" target="_blank" rel="noopener">https://projectlombok.org</a><br>通过简单注解来精简代码，达到消除冗长代码的目的</p>
-<p>Lombok优点</p>
-<ul>
-<li>提高编码效率</li>
-<li>使代码更简洁</li>
-<li>消除冗长代码</li>
-<li>避免修改字段名字时候，忘记修改方法名  注意：IDE上必须要支持Lombok，否则报错</li>
+        <h1 id="Maven环境隔离"><a href="#Maven环境隔离" class="headerlink" title="Maven环境隔离"></a>Maven环境隔离</h1><h4 id="实际的项目环境"><a href="#实际的项目环境" class="headerlink" title="实际的项目环境"></a>实际的项目环境</h4><ul>
+<li><h5 id="本地开发环境（Local）"><a href="#本地开发环境（Local）" class="headerlink" title="本地开发环境（Local）"></a>本地开发环境（Local）</h5></li>
+<li><h5 id="开发环境（Dev）"><a href="#开发环境（Dev）" class="headerlink" title="开发环境（Dev）"></a>开发环境（Dev）</h5></li>
+<li><h5 id="测试环境（Beta）"><a href="#测试环境（Beta）" class="headerlink" title="测试环境（Beta）"></a>测试环境（Beta）</h5></li>
+<li><h5 id="线上环境（Prod）"><a href="#线上环境（Prod）" class="headerlink" title="线上环境（Prod）"></a>线上环境（Prod）</h5></li>
 </ul>
-<p>Lombok原理</p>
-<ul>
-<li>JSR 269 API 规范</li>
-<li>javac从Java6开始支持</li>
-<li>只要程序实现了该API，就能在javac运行时得到应用</li>
+<hr>
+<h4 id="隔离环境之间各种配置存在的差异"><a href="#隔离环境之间各种配置存在的差异" class="headerlink" title="隔离环境之间各种配置存在的差异"></a>隔离环境之间各种配置存在的差异</h4><h5 id="FTP服务器相关配置不一样"><a href="#FTP服务器相关配置不一样" class="headerlink" title="FTP服务器相关配置不一样"></a>FTP服务器相关配置不一样</h5><h5 id="数据库配置不一样"><a href="#数据库配置不一样" class="headerlink" title="数据库配置不一样"></a>数据库配置不一样</h5><h5 id="…"><a href="#…" class="headerlink" title="…"></a>…</h5><hr>
+<h4 id="Maven环境隔离解决的实际问题"><a href="#Maven环境隔离解决的实际问题" class="headerlink" title="Maven环境隔离解决的实际问题"></a>Maven环境隔离解决的实际问题</h4><h5 id="避免人工修改的弊端，即容易犯错"><a href="#避免人工修改的弊端，即容易犯错" class="headerlink" title="避免人工修改的弊端，即容易犯错"></a>避免人工修改的弊端，即容易犯错</h5><h5 id="轻松分环境编译、打包、部署"><a href="#轻松分环境编译、打包、部署" class="headerlink" title="轻松分环境编译、打包、部署"></a>轻松分环境编译、打包、部署</h5><hr>
+<h4 id="Maven环境隔离配置及原理"><a href="#Maven环境隔离配置及原理" class="headerlink" title="Maven环境隔离配置及原理"></a>Maven环境隔离配置及原理</h4><h5 id="在pom-xml中build节点增加"><a href="#在pom-xml中build节点增加" class="headerlink" title="在pom.xml中build节点增加"></a>在pom.xml中build节点增加</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources.$&#123;deploy.type&#125;<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>*.jsp<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="Maven环境隔离目录初始化"><a href="#Maven环境隔离目录初始化" class="headerlink" title="Maven环境隔离目录初始化"></a>Maven环境隔离目录初始化</h4><h5 id="新建对应的文件夹，并把要隔离的文件分开，公共的留下"><a href="#新建对应的文件夹，并把要隔离的文件分开，公共的留下" class="headerlink" title="新建对应的文件夹，并把要隔离的文件分开，公共的留下"></a>新建对应的文件夹，并把要隔离的文件分开，公共的留下</h5><h2 id=""><a href="#" class="headerlink" title=""></a><img src="https://note.youdao.com/yws/api/personal/file/WEBc5420f929365a05317c5126afd6b5fa5?method=download&amp;shareKey=dd7ac81b4fc36f66f571710ea61620db" alt="Maven环境隔离目录初始化"></h2><h4 id="Maven环境隔离IDEA中设置默认环境"><a href="#Maven环境隔离IDEA中设置默认环境" class="headerlink" title="Maven环境隔离IDEA中设置默认环境"></a>Maven环境隔离IDEA中设置默认环境</h4><h5 id="在IDEA右侧Maven-Projects，选中本地开发环境对应的环境，点击import-change-进行更新"><a href="#在IDEA右侧Maven-Projects，选中本地开发环境对应的环境，点击import-change-进行更新" class="headerlink" title="在IDEA右侧Maven Projects，选中本地开发环境对应的环境，点击import change 进行更新"></a>在IDEA右侧Maven Projects，选中本地开发环境对应的环境，点击import change 进行更新</h5><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="http://note.youdao.com/yws/public/resource/85f035f22e89517b6c473ab5950512de/WEBRESOURCE9db24eb4d1b4b745d62a0b3ff8fb4863?ynotemdtimestamp=1562118643179" alt="Maven环境隔离IDEA中设置默认环境"></h2><h4 id="Maven环境隔离编译打包命令"><a href="#Maven环境隔离编译打包命令" class="headerlink" title="Maven环境隔离编译打包命令"></a>Maven环境隔离编译打包命令</h4><h5 id="参数是-P-环境标识"><a href="#参数是-P-环境标识" class="headerlink" title="参数是-P${环境标识}"></a>参数是-P${环境标识}</h5><ul>
+<li>dev</li>
+<li>beta</li>
+<li>prod</li>
 </ul>
-<p><img src="https://note.youdao.com/yws/api/personal/file/WEB3e7d1850253061e27a7198c29e45cf6c?method=download&amp;shareKey=defa81e0e636e788d68beb1f50879105" alt="image"></p>
-<p>Lombok引入项目</p>
-<ul>
-<li><p>Maven引入 </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/org.projectlombok/lombok --&gt;</span> </span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.18.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IDEA或Eclipse安装插件  </p>
-</li>
-</ul>
-<p>Lombok实战</p>
-<ul>
-<li>@Data [包含了@Setter @Getter @ToString @EqualsAndHashCode]</li>
-<li>@Getter</li>
-<li>@Getter(AccessLevel.PROTECTED)</li>
-<li>@Setter</li>
-<li>@Setter(AccessLevel.PROTECTED)</li>
-<li>@NoArgsConstructor</li>
-<li>@AllArgsConstructor</li>
-<li>@ToString</li>
-<li>@ToString(exclude=“column”)</li>
-<li>@ToString(exclude={“column1”,”column2”})</li>
-<li>@ToString(of=“column”)</li>
-<li>@ToString(of={“column1”,”column2”})</li>
-<li>@EqualsAndHashCode (同@ToString)</li>
-<li>EqualsAndHashCode(exclude=“column”)</li>
-<li>@Slf4j [适用于logbook日志框架]</li>
-<li>@Log4j [适用于log4j日志框架]</li>
-</ul>
-<p> Lombok实际使用需注意的点</p>
-<ul>
-<li>在类需要序列化、反序列化时详细控制字段时，例如：Jackson json序列化</li>
-<li>使用Lombok虽然能省去手动创建setter和getter方法等，但是却降低了源码文件的可读性的完整性，以及阅读源码的舒适度</li>
-<li>使用@Slf4j还是@Log4j，看项目使用的日志框架，教程中使用Logback，所以使用@Slf4j</li>
-<li>选择合适的地方使用Lombok，例如pojo是一个好地方</li>
-</ul>
-<p>反编译<br>Java Decompiler<br>http:.//jd.benow.ca</p>
+<p><img src="http://note.youdao.com/yws/public/resource/85f035f22e89517b6c473ab5950512de/WEBRESOURCE983e41d7a6df878c9b5a96922d644762?ynotemdtimestamp=1562118643179" alt="Maven环境隔离编译打包命令"></p>
 
       
     </div>
@@ -585,9 +554,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/annotation/" rel="tag"># annotation</a>
+            <a href="/tags/maven/" rel="tag"># maven</a>
           
-            <a href="/tags/style-of-coding/" rel="tag"># style of coding</a>
+            <a href="/tags/build-tool/" rel="tag"># build tool</a>
+          
+            <a href="/tags/project-management/" rel="tag"># project management</a>
           
         </div>
       
@@ -600,8 +571,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/17/Maven环境隔离/" rel="next" title="Maven环境隔离">
-                <i class="fa fa-chevron-left"></i> Maven环境隔离
+              <a href="/2019/05/17/Redis简介/" rel="next" title="Redis简介">
+                <i class="fa fa-chevron-left"></i> Redis简介
               </a>
             
           </div>
@@ -609,6 +580,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/17/Lombok/" rel="prev" title="Lombok">
+                Lombok <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -656,8 +631,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -791,6 +775,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven环境隔离"><span class="nav-number">1.</span> <span class="nav-text">Maven环境隔离</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#实际的项目环境"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">实际的项目环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#本地开发环境（Local）"><span class="nav-number">1.0.0.1.1.</span> <span class="nav-text">本地开发环境（Local）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#开发环境（Dev）"><span class="nav-number">1.0.0.1.2.</span> <span class="nav-text">开发环境（Dev）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#测试环境（Beta）"><span class="nav-number">1.0.0.1.3.</span> <span class="nav-text">测试环境（Beta）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线上环境（Prod）"><span class="nav-number">1.0.0.1.4.</span> <span class="nav-text">线上环境（Prod）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#隔离环境之间各种配置存在的差异"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">隔离环境之间各种配置存在的差异</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#FTP服务器相关配置不一样"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">FTP服务器相关配置不一样</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库配置不一样"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">数据库配置不一样</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#…"><span class="nav-number">1.0.0.2.3.</span> <span class="nav-text">…</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven环境隔离解决的实际问题"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Maven环境隔离解决的实际问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#避免人工修改的弊端，即容易犯错"><span class="nav-number">1.0.0.3.1.</span> <span class="nav-text">避免人工修改的弊端，即容易犯错</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#轻松分环境编译、打包、部署"><span class="nav-number">1.0.0.3.2.</span> <span class="nav-text">轻松分环境编译、打包、部署</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven环境隔离配置及原理"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">Maven环境隔离配置及原理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在pom-xml中build节点增加"><span class="nav-number">1.0.0.4.1.</span> <span class="nav-text">在pom.xml中build节点增加</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven环境隔离目录初始化"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">Maven环境隔离目录初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#新建对应的文件夹，并把要隔离的文件分开，公共的留下"><span class="nav-number">1.0.0.5.1.</span> <span class="nav-text">新建对应的文件夹，并把要隔离的文件分开，公共的留下</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven环境隔离IDEA中设置默认环境"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">Maven环境隔离IDEA中设置默认环境</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在IDEA右侧Maven-Projects，选中本地开发环境对应的环境，点击import-change-进行更新"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text">在IDEA右侧Maven Projects，选中本地开发环境对应的环境，点击import change 进行更新</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">1.2.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven环境隔离编译打包命令"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">Maven环境隔离编译打包命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#参数是-P-环境标识"><span class="nav-number">1.2.0.1.1.</span> <span class="nav-text">参数是-P${环境标识}</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
